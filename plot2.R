@@ -1,3 +1,7 @@
+#######################
+# start of load_data codes
+#######################
+
 # require sqldf package
 require(sqldf)
 
@@ -22,6 +26,14 @@ dat <- read.csv.sql("household_power_consumption.txt",
 # create a new column for DateTime
 dat$DateTime <- strptime(paste(dat$Date, dat$Time), "%d/%m/%Y %H:%M:%S")
 
+#######################
+# end of load_data codes
+#######################
+
+#######################
+# start of plotting codes
+#######################
+
 # open png device
 png(filename = "plot2.png", width = 480, height = 480, units = "px")
 
@@ -30,3 +42,7 @@ plot(dat$DateTime, dat$Global_active_power, type="l", ylab="Global Active Power 
 
 # close device
 dev.off()
+
+#######################
+# end of plotting codes
+#######################
