@@ -1,3 +1,14 @@
+#######################
+# Dear Peer Reviewer,
+# Please note that I have placed the read data codes in each of the R scripts
+# because the question specifically said "there should be 4 PNG files and 4 R code files".
+# Otherwise, i will have a 5th load_data.R and have each script source from that load_data.R
+#######################
+
+#######################
+# start of load_data codes
+#######################
+
 # require sqldf package
 require(sqldf)
 
@@ -22,6 +33,14 @@ dat <- read.csv.sql("household_power_consumption.txt",
 # create a new column for DateTime
 dat$DateTime <- strptime(paste(dat$Date, dat$Time), "%d/%m/%Y %H:%M:%S")
 
+#######################
+# end of load_data codes
+#######################
+
+#######################
+# start of plotting codes
+#######################
+
 # open png device
 png(filename = "plot1.png", width = 480, height = 480, units = "px")
 
@@ -30,3 +49,7 @@ hist(dat$Global_active_power, main="Global Active Power", xlab="Global Active Po
 
 # close device
 dev.off()
+
+#######################
+# end of plotting codes
+#######################
